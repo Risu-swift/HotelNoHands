@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1047922714511",
+    "project_id": "hotel-6a011",
+    "storage_bucket": "hotel-6a011.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047922714511:android:2faa49b51069d679fc4dfa",
+        "android_client_info": {
+          "package_name": "com.example.HotelNoHands"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047922714511-pi8e4fp04bkjh9n11blp8madh2no4o4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq25dsm9vVlbaPTB_N2SJwNS2_S2wGO7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047922714511-pi8e4fp04bkjh9n11blp8madh2no4o4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
