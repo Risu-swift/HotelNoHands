@@ -8,6 +8,7 @@ import 'Screens/QRScan.dart';
 import 'Screens/Room.dart';
 import 'Screens/RoomDetail.dart';
 import 'Screens/SearchInns.dart';
+import 'Screens/SearhInn.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -36,10 +37,10 @@ class _HomeState extends State<Home> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    searchInns(),
+    MyHomePage(),
     AddUser('Rizwan', 'Blah', 12),
     QRScan(),
-    roomDetail(),
+    GetUserName('PDu8DKtoQ5E0pl7GPAGx'),
     myProfile(),
   ];
 

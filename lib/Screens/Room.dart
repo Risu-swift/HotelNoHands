@@ -14,10 +14,11 @@ class AddUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Create a CollectionReference called users that references the firestore collection
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('Bookings');
 
     DBFunctions db1 = DBFunctions("12355423", "redrizwan007@gmail.com");
-    dynamic data = db1.getData('redrizwan007@gmail.com');
+    dynamic data = db1.getData('PDu8DKtoQ5E0pl7GPAGx');
 
     return Scaffold(
       body: Column(
@@ -26,7 +27,7 @@ class AddUser extends StatelessWidget {
             child: Text("Add Rooms"),
             onPressed: () => db1.addUser(),
           ),
-          Text(data['email'])
+          Text(data['UserMail']),
         ],
       ),
     );

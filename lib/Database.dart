@@ -22,9 +22,9 @@ class DBFunctions {
         .catchError((error) => print("Failed to Book: $error"));
   }
 
-  Future<dynamic> getData(String uemail) async {
+  Future<dynamic> getData(String docId) async {
     final DocumentReference document =
-        FirebaseFirestore.instance.collection("Bookings").doc(uemail);
+        FirebaseFirestore.instance.collection("Bookings").doc(docId);
 
     await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
       return snapshot;
