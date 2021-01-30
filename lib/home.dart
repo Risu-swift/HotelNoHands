@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
     MyHomePage(),
     AddUser('Rizwan', 'Blah', 12),
     QRScan(),
-    GetUserName('PDu8DKtoQ5E0pl7GPAGx'),
+    GetUserName(),
     myProfile(),
   ];
 

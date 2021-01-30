@@ -8,18 +8,19 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:random_string/random_string.dart';
 import 'dart:math' show Random;
 import '../home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Color primaryColor = Color(0xff2A2A2A);
 Color secondaryColor = Color(0xff02FDB5);
 Color logoWhite = Color(0xffF3F3F3);
+String name;
+String chdate;
+String choutdate;
+String uid;
+String uemail;
+String encryptId;
 
 class MyHomePage extends StatelessWidget {
-  String name;
-  String chdate;
-  String choutdate;
-  String uid;
-  String uemail;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,19 +151,25 @@ class MyHomePage extends StatelessWidget {
   }
 
   void booknow(context) {
-    //final User user = getCurrentUser();
-    dynamic db1 = DBFunctions(randomAlphaNumeric(12).toString(),
-        uemail.toString(), name, chdate, choutdate);
+    getCurrentUser();
+    encryptId = randomAlphaNumeric(12).toString();
+    dynamic db1 = DBFunctions(encryptId, uemail, name, chdate, choutdate);
     db1.addUser();
+    addStringToSF();
     Navigator.pop(context);
   }
 
   getCurrentUser() async {
-    final User user = firebaseAuth.currentUser;
-    if (user != null) {
-      uid = user.uid;
-      uemail = user.email;
-    }
+    final User user = await FirebaseAuth.instance.currentUser;
+
+    uid = user.uid;
+    uemail = user.email;
+    print(uemail);
     return user;
+  }
+
+  addStringToSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('StringValue', encryptId) ?? null;
   }
 }

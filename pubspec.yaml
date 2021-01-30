@@ -39,6 +39,7 @@ dependencies:
   flutter_form_builder:  
   rflutter_alert:
   random_string:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

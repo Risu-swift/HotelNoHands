@@ -18,7 +18,8 @@ class DBFunctions {
   Future<void> addUser() {
     // Call the user's CollectionReference to add a new user
     return users
-        .add({
+        .doc(encryptId)
+        .set({
           'EncryptID': encryptId,
           'UserMail': email,
           'Name': name,
