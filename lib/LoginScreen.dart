@@ -10,10 +10,10 @@ final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 class LoginScreen extends StatelessWidget {
-  final Color primaryColor = Color(0xff18203d);
-  final Color secondaryColor = Color(0xff232c51);
+  final Color primaryColor = Color(0xff2A2A2A);
+  final Color secondaryColor = Color(0xff02FDB5);
 
-  final Color logoGreen = Color(0xff25bcbb);
+  final Color logoGreen = Color(0xffF3F3F3);
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -35,14 +35,14 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Sign in to TGD and continue',
+                  'Sign in to IO-Inn to continue',
                   textAlign: TextAlign.center,
                   style:
                       GoogleFonts.openSans(color: Colors.white, fontSize: 28),
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Enter your email and password below to continue to the The Growing Developer and let the learning begin!',
+                  'Enter your email and password below to continue.',
                   textAlign: TextAlign.center,
                   style:
                       GoogleFonts.openSans(color: Colors.white, fontSize: 14),
@@ -61,10 +61,10 @@ class LoginScreen extends StatelessWidget {
                   height: 50,
                   onPressed: () => Navigator.push(
                       context, MaterialPageRoute(builder: (_) => Home())),
-                  color: logoGreen,
+                  color: secondaryColor,
                   child: Text('Login',
-                      style: TextStyle(color: Colors.white, fontSize: 16)),
-                  textColor: Colors.white,
+                      style: TextStyle(color: logoGreen, fontSize: 20)),
+                  textColor: logoGreen,
                 ),
                 SizedBox(height: 20),
                 MaterialButton(
@@ -114,17 +114,17 @@ class LoginScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
-          color: secondaryColor, border: Border.all(color: Colors.blue)),
+          color: primaryColor, border: Border.all(color: secondaryColor)),
       child: TextField(
         controller: controller,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: logoGreen),
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
             labelText: labelText,
             labelStyle: TextStyle(color: Colors.white),
             icon: Icon(
               icon,
-              color: Colors.white,
+              color: secondaryColor,
             ),
             // prefix: Icon(icon),
             border: InputBorder.none),
