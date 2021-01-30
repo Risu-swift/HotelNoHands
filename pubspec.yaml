@@ -33,6 +33,8 @@ dependencies:
   google_sign_in:
   google_fonts:
   font_awesome_flutter:
+  flutter_vector_icons:
+  qr_code_scanner:
 
 dev_dependencies:
   flutter_test:

@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
   static List<Widget> _widgetOptions = <Widget>[
     searchInns(),
     room(),
-    qrScan(),
+    QRScan(),
     roomDetail(),
     myProfile(),
   ];
