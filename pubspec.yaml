@@ -30,11 +30,13 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_auth:
   firebase_core :
+  cloud_firestore:
   google_sign_in:
   google_fonts:
   font_awesome_flutter:
   flutter_vector_icons:
   qr_code_scanner:
+  flutter_form_builder:  
 
 dev_dependencies:
   flutter_test:

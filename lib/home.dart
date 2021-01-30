@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     searchInns(),
-    room(),
+    AddUser('Rizwan', 'Blah', 12),
     QRScan(),
     roomDetail(),
     myProfile(),
@@ -93,7 +93,9 @@ class _HomeState extends State<Home> {
 
   getCurrentUser() async {
     final User user = firebaseAuth.currentUser;
-    final uid = user.uid;
-    final uemail = user.email;
+    if (user != null) {
+      final uid = user.uid;
+      final uemail = user.email;
+    }
   }
 }
