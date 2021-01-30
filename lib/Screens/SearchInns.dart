@@ -62,6 +62,10 @@ class _SearchInnsState extends State<SearchInns> {
         );
       },
       child: new Container(
+        child: Image.asset(
+          './assets/room.jpeg',
+          height: double.infinity,
+        ),
         margin: const EdgeInsets.all(8.0),
         color: index % 2 == 0 ? Colors.blue : Colors.red,
       ),

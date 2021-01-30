@@ -17,17 +17,17 @@ class AddUser extends StatelessWidget {
     CollectionReference users =
         FirebaseFirestore.instance.collection('Bookings');
 
-    DBFunctions db1 = DBFunctions("12355423", "redrizwan007@gmail.com");
-    dynamic data = db1.getData('PDu8DKtoQ5E0pl7GPAGx');
+    //DBFunctions db1 = DBFunctions("12355423", "redrizwan007@gmail.com");
+    //dynamic data = db1.getData('PDu8DKtoQ5E0pl7GPAGx');
 
     return Scaffold(
       body: Column(
         children: [
           TextButton(
-            child: Text("Add Rooms"),
-            onPressed: () => db1.addUser(),
-          ),
-          Text(data['UserMail']),
+              //       child: Text("Add Rooms"),
+              //       onPressed: () => db1.addUser(),
+              ),
+          //     Text(data['UserMail']),
         ],
       ),
     );

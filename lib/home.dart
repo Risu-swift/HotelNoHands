@@ -91,12 +91,13 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
 
-  getCurrentUser() async {
-    final User user = firebaseAuth.currentUser;
-    if (user != null) {
-      final uid = user.uid;
-      final uemail = user.email;
-    }
+getCurrentUser() async {
+  final User user = firebaseAuth.currentUser;
+  if (user != null) {
+    final uid = user.uid;
+    final uemail = user.email;
   }
+  return user;
 }

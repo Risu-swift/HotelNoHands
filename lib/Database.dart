@@ -5,9 +5,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DBFunctions {
   final String encryptId;
-  final email;
+  final String email;
+  final String name;
+  final String chdate;
+  final String choutdate;
 
-  DBFunctions(this.encryptId, this.email);
+  DBFunctions(
+      this.encryptId, this.email, this.name, this.chdate, this.choutdate);
 
   CollectionReference users = FirebaseFirestore.instance.collection('Bookings');
 
@@ -15,8 +19,11 @@ class DBFunctions {
     // Call the user's CollectionReference to add a new user
     return users
         .add({
-          'EncryptID': encryptId, // John Doe
-          'UserMail': email, // Stokes and Sons
+          'EncryptID': encryptId,
+          'UserMail': email,
+          'Name': name,
+          'Check_In_Date': chdate,
+          'Check_Out_Date': choutdate,
         })
         .then((value) => print("Booking Successful"))
         .catchError((error) => print("Failed to Book: $error"));
