@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../sharedPrefs.dart';
 
 String stringValue;
 
@@ -11,7 +12,8 @@ class GetUserName extends StatefulWidget {
 class _GetUserNameState extends State<GetUserName> {
   @override
   Widget build(BuildContext context) {
-    getStringValuesSF().then((v) => v = stringValue);
+    //getStringValuesSF().then((v) => v = stringValue);
+    stringValue = SharedPrefs().username;
     print(stringValue);
     return new StreamBuilder(
         stream: FirebaseFirestore.instance

@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import './LoginScreen.dart';
+import 'sharedPrefs.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await SharedPrefs().init();
+  SharedPrefs().username = "Hello World";
   runApp(MaterialApp(
     home: MyApp(),
   ));

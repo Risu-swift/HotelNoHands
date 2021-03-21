@@ -23,23 +23,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  cloud_firestore: ^1.0.1
   cupertino_icons: ^1.0.0
-  firebase_auth:
-  firebase_core :
-  cloud_firestore:
-  google_sign_in:
-  google_fonts:
-  font_awesome_flutter:
-  flutter_vector_icons:
-  qr_code_scanner:
-  flutter_form_builder:  
-  rflutter_alert:
-  random_string:
-  shared_preferences:
+  firebase_auth: ^1.0.1
+  flutter_vector_icons: ^1.0.0
+  font_awesome_flutter: ^9.0.0
+  google_fonts: ^2.0.0
+  google_sign_in: ^5.0.1
+  qr_code_scanner: ^0.3.5
+  random_string: ^2.1.0
+  rflutter_alert: ^2.0.2
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +41,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -60,13 +53,10 @@ flutter:
   assets:
     - assets/splash-image.png
     - assets/room.jpg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

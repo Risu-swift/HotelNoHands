@@ -1,5 +1,6 @@
 import 'package:HotelNoHands/Database.dart';
 import 'package:HotelNoHands/LoginScreen.dart';
+import '../sharedPrefs.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -151,25 +152,44 @@ class MyHomePage extends StatelessWidget {
   }
 
   void booknow(context) {
-    getCurrentUser();
+    //bool isUserFound = await getCurrentUser();
     encryptId = randomAlphaNumeric(12).toString();
-    dynamic db1 = DBFunctions(encryptId, uemail, name, chdate, choutdate);
-    db1.addUser();
-    addStringToSF();
+
+    getCurrentUser().then((isUserCompleter) {
+      dynamic db1 = DBFunctions(encryptId, uemail, name, chdate, choutdate);
+      db1.addUser();
+      SharedPrefs().init();
+    });
+    print(encryptId);
+    SharedPrefs().username = encryptId;
+    print(SharedPrefs().username);
     Navigator.pop(context);
   }
 
-  getCurrentUser() async {
-    final User user = await FirebaseAuth.instance.currentUser;
+  Future<String> getStringValuesSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    final stringValue = prefs.getString('StringValue') ?? null;
 
+    return stringValue;
+  }
+
+  Future<bool> getCurrentUser() async {
+    final User user = await FirebaseAuth.instance.currentUser;
+    bool isUserComplete = false;
     uid = user.uid;
     uemail = user.email;
+
+    if (uid != null && uemail != null)
+      isUserComplete = true;
+    else
+      isUserComplete = false;
     print(uemail);
-    return user;
+    return isUserComplete;
   }
 
   addStringToSF() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await SharedPreferences.getInstance();
     prefs.setString('StringValue', encryptId) ?? null;
   }
 }

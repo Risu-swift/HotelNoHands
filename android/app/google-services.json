@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1047922714511-hfl4t36ai92g4r9q1k6t39vg2oui6jd3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.HotelNoHands",
+            "certificate_hash": "3d36fd16248cf6c04a00efee1c308211c85e2951"
+          }
+        },
+        {
           "client_id": "1047922714511-pi8e4fp04bkjh9n11blp8madh2no4o4m.apps.googleusercontent.com",
           "client_type": 3
         }
