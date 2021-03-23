@@ -1,6 +1,7 @@
 import 'package:HotelNoHands/Database.dart';
 import 'package:HotelNoHands/LoginScreen.dart';
 import '../sharedPrefs.dart';
+import '../RoomDatabse.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -154,7 +155,11 @@ class MyHomePage extends StatelessWidget {
   void booknow(context) {
     //bool isUserFound = await getCurrentUser();
     encryptId = randomAlphaNumeric(12).toString();
+    encryptId += "md01";
+    //dynamic roomdb = DBRoomFunctions();
+    //String roomNo = roomdb.checkAvailabilty() ?? null;
 
+    //if (roomNo != null) {
     getCurrentUser().then((isUserCompleter) {
       dynamic db1 = DBFunctions(encryptId, uemail, name, chdate, choutdate);
       db1.addUser();
@@ -164,6 +169,7 @@ class MyHomePage extends StatelessWidget {
     SharedPrefs().username = encryptId;
     print(SharedPrefs().username);
     Navigator.pop(context);
+    //}
   }
 
   Future<String> getStringValuesSF() async {

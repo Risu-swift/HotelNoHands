@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import '../sharedPrefs.dart';
+import 'package:http/http.dart' as http;
 
 class QRScan extends StatefulWidget {
   const QRScan({
@@ -14,6 +16,7 @@ class QRScan extends StatefulWidget {
 }
 
 class _QRScanState extends State<QRScan> {
+  String server = '192.168.43.78:8090';
   Barcode result;
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -128,7 +131,7 @@ class _QRScanState extends State<QRScan> {
     // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
       key: qrKey,
-      cameraFacing: CameraFacing.front,
+      cameraFacing: CameraFacing.back,
       onQRViewCreated: _onQRViewCreated,
       formatsAllowed: [BarcodeFormat.qrcode],
       overlay: QrScannerOverlayShape(
@@ -146,6 +149,15 @@ class _QRScanState extends State<QRScan> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
+      String roomNo =
+          SharedPrefs().username.substring(SharedPrefs().username.length - 4);
+      if (roomNo == scanData.code) {
+        doorUnlock();
+        print("Room is Unlocked");
+      } else {
+        doorLock();
+        print("Wrong Room !");
+      }
       setState(() {
         result = scanData;
       });
@@ -156,5 +168,13 @@ class _QRScanState extends State<QRScan> {
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+
+  Future<http.Response> doorUnlock() {
+    return http.get(Uri.http(server, 'unlock'));
+  }
+
+  Future<http.Response> doorLock() {
+    return http.get(Uri.http(server, 'lock'));
   }
 }
